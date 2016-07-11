@@ -1,14 +1,23 @@
+#Answer: 142913828922
+
 from math import sqrt
-def isPrime(n):
-    for i in range(2, int(sqrt(n))):
-        if (n % i == 0):
-            return False
-    return True
+
+def sieve(limit):
+    nums = [True for i in range(limit)]
+    primes = []
+
+    for i in range(2, int(sqrt(limit))+1):
+        if (nums[i] == True):
+            for j in range(i*i, limit, i):
+                nums[j] = False
+
+    for i in range(2, limit):
+        if (nums[i] == True):
+            primes.append(i)
+
+    return primes
 
 def main():
-    total = 0 
-    for i in range(2, 10):
-        if (isPrime(i)): 
-            total += i
-    print(total)
+    print(sum(sieve(2000000)))
+
 main()
