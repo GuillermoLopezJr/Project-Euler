@@ -29,8 +29,9 @@ public class Euler004{
 		String secondHalf = strNum.substring(length/2, length);
 		String secondHalfRev = "";
 
-		for(int i = secondHalf.length()-1; i >= 0; i--)
+		for (int i = secondHalf.length()-1; i >= 0; i--) {
 			secondHalfRev += secondHalf.charAt(i);
+		}
 
 		return firstHalf.equals(secondHalfRev);	
 	}
